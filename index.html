@@ -1,0 +1,637 @@
+Claro! Aqui está **um único código `index.html`**, com HTML, CSS e JavaScript juntos. É só copiar, salvar como `index.html` e abrir no navegador.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vôlei - Paixão pela Quadra</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+            transition: 0.3s;
+        }
+
+        /* MENU */
+        header {
+            background: linear-gradient(135deg, #005bea, #00c6fb);
+            color: white;
+            padding: 18px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        nav h1 {
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffe600;
+        }
+
+        #modoBtn {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: white;
+            color: #005bea;
+            font-weight: bold;
+        }
+
+        /* INÍCIO */
+        .hero {
+            min-height: 600px;
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(
+                135deg,
+                #005bea,
+                #00c6fb
+            );
+            color: white;
+        }
+
+        .hero-texto {
+            max-width: 600px;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            border: none;
+            background: #ffe600;
+            color: #222;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            transform: scale(1.05);
+        }
+
+        .bola {
+            font-size: 180px;
+            animation: flutuar 3s infinite ease-in-out;
+        }
+
+        @keyframes flutuar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* SEÇÕES */
+        .secao {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .secao h2 {
+            color: #005bea;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .descricao {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* CARDS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,91,234,0.2);
+        }
+
+        .icone {
+            font-size: 45px;
+        }
+
+        .card h3 {
+            color: #005bea;
+            margin: 15px 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        /* FUNDO AZUL CLARO */
+        .fundo {
+            background: #eaf5ff;
+        }
+
+        /* REGRAS */
+        .regras {
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .regra {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .numero {
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #005bea;
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* CURIOSIDADE */
+        #curiosidade {
+            color: #ffe600;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MODO ESCURO */
+        body.dark {
+            background: #111827;
+            color: white;
+        }
+
+        body.dark .card,
+        body.dark .regra {
+            background: #1f2937;
+            color: white;
+        }
+
+        body.dark .fundo {
+            background: #172554;
+        }
+
+        body.dark .secao h2 {
+            color: #38bdf8;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero h2 {
+                font-size: 40px;
+            }
+
+            .bola {
+                font-size: 100px;
+            }
+
+            .regras {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <nav>
+
+            <h1>🏐 VÔLEI</h1>
+
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#posicoes">Posições</a></li>
+                <li><a href="#regras">Regras</a></li>
+            </ul>
+
+            <button id="modoBtn">
+                🌙 Modo escuro
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="hero">
+
+        <div class="hero-texto">
+
+            <h2>
+                Paixão, energia e trabalho em equipe!
+            </h2>
+
+            <p>
+                Bem-vindo ao mundo do vôlei! Conheça a história,
+                as posições, as regras e algumas curiosidades
+                sobre esse esporte incrível.
+            </p>
+
+            <button id="curiosidadeBtn">
+                🎯 Mostrar curiosidade
+            </button>
+
+            <p id="curiosidade"></p>
+
+        </div>
+
+        <div class="bola">
+            🏐
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+    <section id="sobre" class="secao">
+
+        <h2>Sobre o Vôlei</h2>
+
+        <p class="descricao">
+            O voleibol é um esporte coletivo disputado entre
+            duas equipes. O objetivo é fazer a bola tocar o
+            chão da quadra adversária ou provocar um erro
+            da equipe adversária.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icone">🏃</div>
+
+                <h3>Movimento</h3>
+
+                <p>
+                    Os jogadores precisam ter velocidade,
+                    agilidade e boa coordenação.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icone">🤝</div>
+
+                <h3>Trabalho em equipe</h3>
+
+                <p>
+                    A comunicação entre os jogadores é
+                    essencial durante uma partida.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icone">🎯</div>
+
+                <h3>Precisão</h3>
+
+                <p>
+                    Passes, saques, bloqueios e ataques
+                    precisam de muita precisão.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- POSIÇÕES -->
+    <section id="posicoes" class="secao fundo">
+
+        <h2>Posições dos Jogadores</h2>
+
+        <p class="descricao">
+            Cada jogador possui uma função importante
+            dentro da equipe.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icone">🏐</div>
+
+                <h3>Levantador</h3>
+
+                <p>
+                    Organiza as jogadas e normalmente realiza
+                    o levantamento para os atacantes.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">💥</div>
+
+                <h3>Oposto</h3>
+
+                <p>
+                    É um dos principais jogadores responsáveis
+                    pelos ataques da equipe.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">🔥</div>
+
+                <h3>Ponteiro</h3>
+
+                <p>
+                    Participa do ataque, da recepção e
+                    também ajuda na defesa.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">🛡️</div>
+
+                <h3>Líbero</h3>
+
+                <p>
+                    É especialista em defesa e recepção
+                    e utiliza uniforme de cor diferente.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">🧱</div>
+
+                <h3>Central</h3>
+
+                <p>
+                    Atua principalmente nos bloqueios e
+                    nos ataques rápidos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGRAS -->
+    <section id="regras" class="secao">
+
+        <h2>Regras Básicas</h2>
+
+        <div class="regras">
+
+            <div class="regra">
+
+                <div class="numero">1</div>
+
+                <p>
+                    Cada equipe pode tocar na bola até
+                    três vezes antes de enviá-la para
+                    o outro lado.
+                </p>
+
+            </div>
+
+
+            <div class="regra">
+
+                <div class="numero">2</div>
+
+                <p>
+                    A bola não pode tocar o chão dentro
+                    da própria quadra.
+                </p>
+
+            </div>
+
+
+            <div class="regra">
+
+                <div class="numero">3</div>
+
+                <p>
+                    Os jogadores realizam rotação quando
+                    a equipe conquista o direito de sacar.
+                </p>
+
+            </div>
+
+
+            <div class="regra">
+
+                <div class="numero">4</div>
+
+                <p>
+                    A equipe marca ponto quando a bola
+                    toca a quadra adversária ou quando
+                    o adversário comete uma falta.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            🏐 Site sobre Vôlei
+        </p>
+
+        <br>
+
+        <p>
+            Feito com HTML, CSS e JavaScript
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // MODO ESCURO
+
+        const modoBtn = document.getElementById("modoBtn");
+
+        modoBtn.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                modoBtn.textContent = "☀️ Modo claro";
+
+            } else {
+
+                modoBtn.textContent = "🌙 Modo escuro";
+
+            }
+
+        });
+
+
+        // CURIOSIDADES
+
+        const curiosidadeBtn =
+            document.getElementById("curiosidadeBtn");
+
+        const curiosidade =
+            document.getElementById("curiosidade");
+
+
+        const curiosidades = [
+
+            "🏐 O voleibol foi criado em 1895 por William G. Morgan.",
+
+            "🌎 O vôlei é praticado em diversos países do mundo.",
+
+            "🛡️ O líbero é especializado em defesa e recepção.",
+
+            "💥 O ataque é uma das principais formas de marcar pontos.",
+
+            "🤝 A comunicação é fundamental para uma equipe de vôlei.",
+
+            "🏖️ Além do vôlei de quadra, existe também o vôlei de praia."
+
+        ];
+
+
+        curiosidadeBtn.addEventListener("click", function() {
+
+            const numero =
+                Math.floor(Math.random() * curiosidades.length);
+
+            curiosidade.textContent =
+                curiosidades[numero];
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
